@@ -1,0 +1,58 @@
+body{
+    background: black !important;
+    font-family: 'Muli', sans-serif;
+    
+  }
+  h1{
+    color: #fff;
+    padding-bottom: 2rem;
+    font-weight: bold;
+  }
+  a{
+    color: #333;
+  }
+  a:hover{
+    color: black;
+    text-decoration: none;
+  }
+  .form-control:focus {
+  
+      color: #000;
+      background-color: #fff;
+      border:2px solid black;
+      outline: 0;
+      box-shadow: none;
+  
+  }
+  
+  .btn{
+    background: black;
+    border: white;
+  }
+  .btn:hover {
+    opacity: 0.8;
+    border: white;
+  }
+
+  font 
+  {
+    color: black;
+  }
+
+
+  font:hover
+  {
+      color: blue;
+  }
+
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  footer
+  {
+      font-size: 10px;
+  }
