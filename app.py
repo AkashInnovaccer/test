@@ -1,3 +1,6 @@
+# made by akash
+
+
 from flask import Flask, request, jsonify,url_for,redirect, make_response, request, render_template, session
 import jwt
 from datetime import datetime, timedelta
@@ -5,7 +8,6 @@ from functools import wraps
 import sqlite3 as sql
 
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = 'your secret key'
 def token_required(func):
     @wraps(func)
@@ -19,12 +21,7 @@ def token_required(func):
             return jsonify({'Message': 'Invalid token'}), 403
         return func(*args, **kwargs)
     return decorated
-@app.route('/')
-def home():
-    login = False
-    if session["logged_in"]==True:
-        login=True
-    return render_template("index.html",login=login)
+
 
 @app.route('/register')
 def new_student():
@@ -114,6 +111,17 @@ def loggedin():
     else:
         return redirect(url_for("login"))
 
+@app.route('/home')
+def home():
+    login = False
+    if session["logged_in"]==True:
+        login=True
+    return render_template("index.html",login=login)
+
+@app.route('/')
+def root():
+    login = False
+    return render_template("index.html",login=login)
 
 
 @app.route('/logout')
@@ -131,14 +139,15 @@ def cart():
         return render_template("cart.html")
 
 
-@app.route('/auth')
-@token_required
-def auth():
-    return 'JWT is verified. Welcome to your dashboard !  '
+
 
 @app.route("/corona")
 def corona():
     return render_template("corona.html")
 
+
+@app.route("/aws")
+def aws():
+    return redirect("http://0.0.0.0:5001/load")
 if __name__ == '__main__':
-   app.run(debug = False , host="localhost")
+    app.run(debug = True , host="0.0.0.0")

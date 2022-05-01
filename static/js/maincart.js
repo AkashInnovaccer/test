@@ -1,8 +1,8 @@
+// <!-- made by shreya -->
 
 let cartIcon=document.querySelector('#cart-icon')
 let cart = document.querySelector(".cart");
 let closeCart = document.querySelector("#close-cart");
-
 //open
 cartIcon.onclick=()=>{
     cart.classList.add("active");
@@ -128,5 +128,4 @@ function updatetotal() {
         total=Math.round(total*100)/100;
         document.getElementsByClassName('total-price')[0].innerText='$'+total;
 }
-
 }
